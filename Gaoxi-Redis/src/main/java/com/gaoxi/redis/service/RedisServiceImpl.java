@@ -6,6 +6,7 @@ package com.gaoxi.redis.service;
  * @description
  */
 import java.io.Serializable;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -70,58 +71,88 @@ public class RedisServiceImpl implements RedisService {
         return redisTemplate.hasKey(key);
     }
 
-    /**
-     * 读取缓存
-     *
-     * @param key
-     * @return
-     */
-    @Override
-    public Object get(final String key) {
-        Object result = null;
-        ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-        result = operations.get(key);
-        return result;
-    }
+//    /**
+//     * 读取缓存
+//     *
+//     * @param key
+//     * @return
+//     */
+//    @Override
+//    public Serializable get(final String key) {
+//        Object result = null;
+//        ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+//        result = operations.get(key);
+//        return result;
+//    }
+//
+//    /**
+//     * 写入缓存
+//     *
+//     * @param key
+//     * @param value
+//     * @return
+//     */
+//    @Override
+//    public boolean set(final String key, Object value) {
+//        boolean result = false;
+//        try {
+//            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+//            operations.set(key, value);
+//            result = true;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return result;
+//    }
+//
+//    /**
+//     * 写入缓存
+//     *
+//     * @param key
+//     * @param value
+//     * @return
+//     */
+//    @Override
+//    public boolean set(final String key, Object value, Long expireTime) {
+//        boolean result = false;
+//        try {
+//            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+//            operations.set(key, value);
+//            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+//            result = true;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return result;
+//    }
 
-    /**
-     * 写入缓存
-     *
-     * @param key
-     * @param value
-     * @return
-     */
-    @Override
-    public boolean set(final String key, Object value) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            operations.set(key, value);
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+	@Override
+	public Serializable get(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    /**
-     * 写入缓存
-     *
-     * @param key
-     * @param value
-     * @return
-     */
-    @Override
-    public boolean set(final String key, Object value, Long expireTime) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            operations.set(key, value);
-            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+	@Override
+	public boolean set(String key, Serializable value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean set(String key, Serializable value, Long expireTime) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <K, HK, HV> boolean setMap(K key, Map<HK, HV> map, Long expireTime) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <K, HK, HV> Map<HK, HV> getMap(K key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
